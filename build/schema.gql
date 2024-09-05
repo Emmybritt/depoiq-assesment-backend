@@ -1,0 +1,59 @@
+input FindManyTopicsInput {
+  lean: Boolean = true
+  limit: Float = 12
+  name: [String!]
+  offset: Float
+  page: Float = 1
+  populate: [String!] = []
+  search: [String!]
+  select: [String!]
+  sort: [String!] = ["updatedAt,-1"]
+}
+
+type FindManyTopicsResponseDto {
+  docs: [TopicModel!]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Float
+  nextPage: Float
+  offset: Float
+  page: Float
+  pagingCounter: Float
+  prevPage: Float
+  totalDocs: Float
+  totalPages: Float
+}
+
+type Query {
+  findManyTopics(topicsInput: FindManyTopicsInput!): FindManyTopicsResponseDto
+}
+
+type Mutation {
+  addTopic(input: AddTopicInput!): TopicModel!
+  updateTopic(id: ID!, input: UpdateTopicInput!): TopicModel!
+}
+
+type TopicModel {
+  _id: ID!
+  name: String!
+  result1: String
+  result2: String
+  result3: String
+  result4: String
+}
+
+input AddTopicInput {
+  name: String!
+  result1: String
+  result2: String
+  result3: String
+  result4: String
+}
+
+input UpdateTopicInput {
+  name: String
+  result1: String
+  result2: String
+  result3: String
+  result4: String
+}
