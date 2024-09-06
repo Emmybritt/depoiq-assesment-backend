@@ -77,7 +77,7 @@ SENTRY_DSN=yoursentrydsn
 
 - **Compress Api Response using compression** - The compression package in Node.js is used to compress HTTP responses sent from a server to a client, typically in a web application. It helps reduce the size of the response body, allowing for faster transmission over the network, which can improve the overall performance of your web application, especially for clients with slower internet connections.
 
-### Key Benefits:
+# Key Benefits:
 
 1. Reduces Response Size: It compresses responses using algorithms like Gzip or Brotli, which reduces the payload size, leading to faster data transmission.
    Improves Performance: Since less data is sent over the network, it decreases load times and enhances user experience, especially for large files such as JSON data, HTML, or CSS.
@@ -89,7 +89,7 @@ SENTRY_DSN=yoursentrydsn
 
 - **Monitoring and Logging with sentry**: Sentry is an error monitoring and performance tracking tool for applications, including those built with Node.js, Express, and GraphQL. It helps developers track and fix issues in real-time by providing detailed information about errors, exceptions, and performance bottlenecks.
 
-### Key Benefits of Using Sentry:
+# Key Benefits of Using Sentry:
 
 1. Error Monitoring: Automatically captures errors and exceptions in your application, including stack traces, user context, and environment details.
 2. Performance Tracking: Monitors performance bottlenecks like slow API requests, GraphQL resolver delays, and long-running database queries.
@@ -97,7 +97,7 @@ SENTRY_DSN=yoursentrydsn
 4. Debugging: Provides detailed error logs, breadcrumbs, and additional context, making it easier to debug.
 5. Team Collaboration: Enables team members to view, track, and resolve issues collaboratively.
 
-### Other alternative logging tools
+# Other alternative logging tools
 
 1. Winston for structured logging.
 2. Morgan for HTTP request logging.
