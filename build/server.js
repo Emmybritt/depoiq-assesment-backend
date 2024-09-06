@@ -35,8 +35,10 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const express_1 = __importDefault(require("express"));
 const fs_1 = __importDefault(require("fs"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const morgan_1 = __importDefault(require("morgan"));
 const path_1 = __importDefault(require("path"));
 const topics_resolver_1 = __importDefault(require("./topics.resolver"));
+const helmet_1 = __importDefault(require("helmet"));
 dotenv_1.default.config();
 const typeDefs = (0, apollo_server_express_1.gql) `
   ${fs_1.default.readFileSync(path_1.default.resolve(__dirname, "./schema.gql"), "utf8")}
@@ -49,6 +51,8 @@ mongoose_1.default
     const server = new apollo_server_express_1.ApolloServer({ typeDefs, resolvers: topics_resolver_1.default });
     const app = (0, express_1.default)();
     app.use((0, compression_1.default)());
+    app.use((0, morgan_1.default)("dev"));
+    app.use((0, helmet_1.default)());
     Sentry.setupExpressErrorHandler(app);
     app.use((0, cors_1.default)({
         origin: "*",

@@ -1,6 +1,6 @@
 # Depoiq Assessment - Backend
 
-This is the backend for the Depoiq assessment, developed using Node.js and Express. It includes RESTful API endpoints to manage the data and integrates with a database for persistence. The project was designed following best practices for modularity, scalability, and security.
+This is the backend for the Depoiq assessment, developed using Node.js and Express and graphql. It includes RESTful API endpoints to manage the data and integrates with a database for persistence. The project was designed following best practices for modularity, scalability, and security.
 
 ## Table of Contents
 
@@ -9,7 +9,6 @@ This is the backend for the Depoiq assessment, developed using Node.js and Expre
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
-- [Known Issues](#known-issues)
 
 ## Features
 
@@ -21,9 +20,14 @@ This is the backend for the Depoiq assessment, developed using Node.js and Expre
 ## Tech Stack
 
 - **Node.js** - JavaScript runtime for building scalable server-side applications.
-- **Express.js** - Web framework for Node.js.
-- **mongoose** - ORM for handling database operations.
-- **mongodb** - Relational database for persistent storage.
+- **Express.js** - Web framework for Node.js, used to handle routing and middleware.
+- **Mongoose** - ODM (Object Data Modeling) library for MongoDB, used for managing database operations in a structured manner.
+- **MongoDB** - NoSQL database for storing and retrieving data in a flexible, document-oriented format.
+- **GraphQL** - Query language for APIs that enables efficient data fetching by allowing clients to request exactly the data they need.
+- **Apollo Server** - GraphQL server implementation that connects to your database and resolves client queries.
+- **Sentry** - Monitoring and error tracking platform used for logging and tracking errors in production environments.
+- **Compression** - Middleware used to compress HTTP responses, improving application performance.
+- **Helmet** - Security middleware for setting HTTP headers to protect against common vulnerabilities like XSS and clickjacking.
 
 ## Installation
 
@@ -50,7 +54,6 @@ Ensure you have the following installed:
    ```
 
 3. Set up the mongodb database and configure environment variables (see below).
-
 
 4. Start the server:
 
@@ -109,7 +112,7 @@ SENTRY_DSN=yoursentrydsn
 - Helmet is a middleware for Node.js, commonly used with frameworks like Express.js, to enhance security by setting various HTTP headers. It helps mitigate certain common web vulnerabilities by configuring security-related headers automatically. These headers protect your app from threats like cross-site scripting (XSS), clickjacking, and other malicious activities.
 
 - Key Features of Helmet
-Helmet sets several security-related HTTP headers, such as:
+  Helmet sets several security-related HTTP headers, such as:
 
 1. Content Security Policy (CSP) - Prevents attacks like XSS by restricting the sources of content the browser is allowed to load.
 2. X-Frame-Options - Protects against clickjacking by ensuring that your site cannot be embedded into a frame.
