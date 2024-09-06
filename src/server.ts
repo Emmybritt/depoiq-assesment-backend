@@ -7,8 +7,10 @@ import dotenv from "dotenv";
 import express from "express";
 import fs from "fs";
 import mongoose from "mongoose";
+import morgan from "morgan";
 import path from "path";
 import resolvers from "./topics.resolver";
+import helmet from "helmet";
 
 dotenv.config();
 
@@ -28,6 +30,8 @@ mongoose
 
     const app = express();
     app.use(compression());
+    app.use(morgan("dev"));
+    app.use(helmet());
 
     Sentry.setupExpressErrorHandler(app);
 

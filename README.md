@@ -103,3 +103,18 @@ SENTRY_DSN=yoursentrydsn
 2. Morgan for HTTP request logging.
 3. Datadog for full application monitoring.
 4. Prometheus & Grafana for real-time metrics and performance monitoring.
+
+## Securities
+
+- Helmet is a middleware for Node.js, commonly used with frameworks like Express.js, to enhance security by setting various HTTP headers. It helps mitigate certain common web vulnerabilities by configuring security-related headers automatically. These headers protect your app from threats like cross-site scripting (XSS), clickjacking, and other malicious activities.
+
+- Key Features of Helmet
+Helmet sets several security-related HTTP headers, such as:
+
+1. Content Security Policy (CSP) - Prevents attacks like XSS by restricting the sources of content the browser is allowed to load.
+2. X-Frame-Options - Protects against clickjacking by ensuring that your site cannot be embedded into a frame.
+3. X-Content-Type-Options - Prevents browsers from interpreting files as a different MIME type, reducing the risk of certain attacks.
+4. Strict-Transport-Security (HSTS) - Enforces secure (HTTPS) connections to your server.
+5. Referrer-Policy - Controls how much referrer information is sent along with requests.
+6. X-DNS-Prefetch-Control - Controls browser DNS prefetching, helping mitigate certain privacy issues.
+7. Expect-CT - Helps detect and enforce Certificate Transparency.
