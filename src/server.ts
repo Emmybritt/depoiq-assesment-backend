@@ -1,11 +1,15 @@
+require("./instrument");
+import * as Sentry from "@sentry/node";
 import { ApolloServer, gql } from "apollo-server-express";
-import resolvers from "./topics.resolver";
-import express from "express";
-import fs from "fs";
-import path from "path";
-import mongoose, { ConnectOptions } from "mongoose";
+import compression from "compression";
 import cors from "cors";
 import dotenv from "dotenv";
+import express from "express";
+import fs from "fs";
+import mongoose from "mongoose";
+import path from "path";
+import resolvers from "./topics.resolver";
+
 dotenv.config();
 
 const typeDefs = gql`
@@ -23,12 +27,17 @@ mongoose
     const server = new ApolloServer({ typeDefs, resolvers });
 
     const app = express();
+    app.use(compression());
+
+    Sentry.setupExpressErrorHandler(app);
+
     app.use(
       cors({
         origin: "*",
         credentials: true,
       })
     );
+
     await server.start();
     server.applyMiddleware({ app });
 
